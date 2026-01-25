@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Montserrat:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* RESET TOTALE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #05050a;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* SFONDO DINAMICO LARGO */
+        .wide-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 20% 30%, #001a33 0%, #05050a 100%);
+            z-index: -1;
+        }
+
+        /* HEADER FULL WIDTH */
+        header {
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .studio-title {
+            font-size: clamp(3rem, 8vw, 7rem); /* Si adatta alla larghezza dello schermo */
+            font-weight: 900;
+            text-transform: uppercase;
+            transform: skewX(-12deg);
+            background: linear-gradient(90deg, #00d4ff, #0055ff, #00d4ff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .studio-tagline {
+            font-family: 'Fira Code', monospace;
+            color: #00d4ff;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            letter-spacing: 5px;
+        }
+
+        /* GRIGLIA LARGA */
+        .wide-container {
+            width: 100%;
+            padding: 60px 4%; /* Margini minimi ai lati */
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Card molto più larghe */
+            gap: 20px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 50px;
+            border-radius: 5px; /* Angoli meno arrotondati per un look più tech */
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .service-card:hover {
+            background: rgba(0, 212, 255, 0.08);
+            border-color: #00d4ff;
+            transform: scale(1.02);
+            box-shadow: -10px 10px 0px #00d4ff; /* Ombra "storta" e netta */
+        }
+
+        .service-card i {
+            font-size: 3.5rem;
+            color: #00d4ff;
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+        }
+
+        .card-content h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            transform: skewX(-5deg);
+        }
+
+        .card-content p {
+            color: #aaa;
+            font-size: 1rem;
+            line-height: 1.5;
+            max-width: 500px;
+        }
+
+        /* BOTTONI GRANDI */
+        .btn-discord {
+            display: inline-block;
+            background: #ffffff;
+            color: #000;
+            text-decoration: none;
+            padding: 20px 60px;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            transform: skewX(-15deg);
+            transition: 0.3s;
+            margin-top: 40px;
+        }
+
+        .btn-discord:hover {
+            background: #00d4ff;
+            color: #fff;
+            transform: skewX(-15deg) translateY(-5px);
+        }
+
+        footer {
+            width: 100%;
+            padding: 100px 5%;
+            background: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #444;
+        }
+
+        .footer-logo { font-weight: 900; color: #fff; transform: skewX(-10deg); }
+
+    </style>
+</head>
+<body>
+
+    <div class="wide-bg"></div>
+
+    <header>
+        <img src="fire.png" alt="Fire Logo" style="width: 100px; margin-bottom: 20px;">
+        <h1 class="studio-title">Byte Development</h1>
+        <p class="studio-tagline">OLTREPASSA IL LIMITE</p>
+        <a href="https://dsc.gg/bytedeveloper" class="btn-discord">Entra nel Team</a>
+    </header>
+
+    <div class="wide-container">
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <div class="card-content">
+                    <h3>Siti Web</h3>
+                    <p>Architetture moderne su misura. Dal portfolio al sistema gestionale complesso.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-robot"></i>
+                <div class="card-content">
+                    <h3>Bot Custom</h3>
+                    <p>Sistemi intelligenti per Discord e Telegram progettati per scalare.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-server"></i>
+                <div class="card-content">
+                    <h3>Minecraft & Discord</h3>
+                    <p>Setup professionali con protezione anti-DDoS e ottimizzazione core.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-shopping-bag"></i>
+                <div class="card-content">
+                    <h3>Store & Forum</h3>
+                    <p>Piattaforme di monetizzazione sicure e forum per la tua community.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-bezier-curve"></i>
+                <div class="card-content">
+                    <h3>Graphic Design</h3>
+                    <p>Branding completo: dai loghi vettoriali alle interfacce utente (UI).</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-plus"></i>
+                <div class="card-content">
+                    <h3>Richieste Custom</h3>
+                    <p>Hai un'idea folle? Noi la trasformiamo in codice puro.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">BYTE DEVELOPMENT</div>
+        <div></div>
+        <div>&copy; 2026 TUTTI I DIRITTI RISERVATI</div>
+    </footer>
+
+</body>
+</html>
